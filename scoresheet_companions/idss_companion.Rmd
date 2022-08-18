@@ -1,0 +1,44 @@
+---
+title: "idss_companion"
+output: html_document
+---
+## 1. Background
+
+This companion file is for the Ideal Body Stereotype Scale, which is designed to measure internalization of the ideal-body stereotype. It was developed as part of a study examining how the dual pathway model of bulimia predicts diagnostic levels of the disorder.The measure is an adapted form of the Ideal-Body Stereotype Scale (Stice et al., 1994). 
+
+Reference 1: ["A prospective test of the dual-pathway model of bulimic pathology: Mediting effects of dieting and negative affect.Journal of Abnormal Psychology"] (http://www.ori.org/files/Static%20Page%20Files/Stice01.pdf)
+
+
+## 2. Scoresheet
+
+In order to clean the data:
+
+(1) Selects raw variables being used for the current measure
+
+(2) Renames variables to be easily identified
+
+(3) Calculate the mean scores and rename this as idss_mean
+
+
+## 3. Key Variables
+
+"idss_slender", 
+"idss_in_shape", 
+"idss_tall", 
+"idss_lean",
+"idss_shapely", 
+"idss_long_legs", 
+"ideal_body_stereotype_scale_revised_complete"
+
+
+
+```{r setup, include=FALSE}
+library(readxl)
+library (cgwtools)
+library(scorekeeper)
+BAM_raw <- read.csv('BAM_RA_raw.csv')
+idss_clean <- read.csv('idss_clean.csv')
+cleaned_data <- scorekeep(BAM_raw, idss_clean)
+cleaned_idss_data <- cleaned_data[[4]]
+```
+
