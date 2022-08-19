@@ -1,0 +1,50 @@
+raw_vars,new_var,label,operation,step,val_labs,new_vals,if_condition,if_true_return,else_return,code
+record_id,NA,Record ID,raw,0,NA,NA,NA,NA,NA,NA
+redcap_event_name,NA,Event Name,raw,0,NA,NA,NA,NA,NA,NA
+edds_timestamp,NA,Survey Timestamp,raw,0,"Not at all = 0, Between not at all and slightly = 1, Slightly = 2, Between slightly and moderately = 3, Moderately = 4, Between moderately and extremely = 5, Extremely = 6",NA,NA,NA,NA,NA
+edds_fat,NA,Have you felt fat?,raw,0,"Not at all = 0, Between not at all and slightly = 1, Slightly = 2, Between slightly and moderately = 3, Moderately = 4, Between moderately and extremely = 5, Extremely = 6",NA,NA,NA,NA,NA
+edds_gain_weight,NA,Have you had a definite fear that you might gain weight or become fat?,raw,0,"Not at all = 0, Between not at all and slightly = 1, Slightly = 2, Between slightly and moderately = 3, Moderately = 4, Between moderately and extremely = 5, Extremely = 6",NA,NA,NA,NA,NA
+edds_self_judge,NA,Has your weight or shape influenced how you judge yourself as a person?,raw,0,"Not at all = 0, Between not at all and slightly = 1, Slightly = 2, Between slightly and moderately = 3, Moderately = 4, Between moderately and extremely = 5, Extremely = 6",NA,NA,NA,NA,NA
+edds_eat_too_much,NA,During the past 3 months have there been times when you have eaten what other people would regard as an unusually large amount of food (eg. a pint of ice cream) given the circumstances?,raw,0,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_lose_control,NA,"During the times when you ate an unusually large amount of food, did you experience a loss of control (eg. felt you couldn't stop eating or control what or how much you were eating)?",raw,0,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_eat_much_frequency,NA,How many times per month on average over the past 3 months have you eaten an unusually large amount of food and experienced a loss of control?,raw,0,NA,NA,NA,NA,NA,NA
+edds_more_rapid,NA,Eat much more rapidly than normal?,raw,0,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_too_full,NA,Eat until you felt uncomfortably full?,raw,0,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_not_hungry,NA,Eat large amounts of food when you didn't feel physically hungry?,raw,0,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_eat_alone,NA,Eat alone because you were embarrassed by how much you were eating?,raw,0,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_digusted,NA,"Feel disgusted with yourself, depressed, or very guilty after overeating?",raw,0,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_overeat_upset,NA,"If you have episodes of uncontrollable overeating, does it make you very upset?",raw,0,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_vomit,NA,Made yourself vomit?,raw,0,NA,NA,NA,NA,NA,NA
+edds_laxatives,NA,Used laxatives or diuretics?,raw,0,NA,NA,NA,NA,NA,NA
+edds_fast,NA,Fasted (skipped at least 2 meals in a row)?,raw,0,NA,NA,NA,NA,NA,NA
+edds_intense_exercise,NA,Engaged in more intense exercise specifically to counteract the effects of overeating?,raw,0,NA,NA,NA,NA,NA,NA
+edds_night_eat,NA,How many times per month on average over the past 3 months have you eaten after awakening from sleep or eaten an unusually large amount of food after your evening meal and felt distressed by the night eating?,raw,0,NA,NA,NA,NA,NA,NA
+edds_relationship,NA,"How much does any eating or body image problem impact your relationships with friends and family, work performance, and school performance?",raw,0,NA,NA,NA,NA,NA,NA
+edds_sex,NA,What is your sex?,raw,0,"Male = 1, Female = 2",NA,NA,NA,NA,NA
+edds_complete,NA,Complete?,raw,0,"incomplete = 0, complete = 2",NA,NA,NA,NA,NA
+"record_id, redcap_event_name, edds_timestamp, edds_fat, edds_gain_weight, edds_self_judge, edds_eat_too_much, edds_lose_control, edds_eat_much_frequency, edds_more_rapid, edds_too_full, edds_not_hungry, edds_eat_alone, edds_digusted, edds_overeat_upset, edds_vomit, edds_laxatives, edds_fast, edds_intense_exercise, edds_night_eat, edds_relationship, edds_sex, edds_complete",NA,NA,select,1,NA,NA,NA,NA,NA,NA
+record_id,id,Record ID,rename,2,NA,NA,NA,NA,NA,NA
+redcap_event_name,redcap_1_event_name,Event Name,rename,2,"Not at all = 0, Between not at all and slightly = 1, Slightly = 2, Between slightly and moderately = 3, Moderately = 4, Between moderately and extremely = 5, Extremely = 6",NA,NA,NA,NA,NA
+edds_timestamp,edds_2_timestamp,Survey Timestamp,rename,2,"Not at all = 0, Between not at all and slightly = 1, Slightly = 2, Between slightly and moderately = 3, Moderately = 4, Between moderately and extremely = 5, Extremely = 6",NA,NA,NA,NA,NA
+edds_fat,edds_3_fat,Have you felt fat?,rename,2,"Not at all = 0, Between not at all and slightly = 1, Slightly = 2, Between slightly and moderately = 3, Moderately = 4, Between moderately and extremely = 5, Extremely = 6",NA,NA,NA,NA,NA
+edds_gain_weight,edds_4_gain_weight,Have you had a definite fear that you might gain weight or become fat?,rename,2,"Not at all = 0, Between not at all and slightly = 1, Slightly = 2, Between slightly and moderately = 3, Moderately = 4, Between moderately and extremely = 5, Extremely = 6",NA,NA,NA,NA,NA
+edds_self_judge,edds_5_self_judge,Has your weight or shape influenced how you judge yourself as a person?,rename,2,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_eat_too_much,edds_6_eat_too_much,During the past 3 months have there been times when you have eaten what other people would regard as an unusually large amount of food (eg. a pint of ice cream) given the circumstances?,rename,2,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_lose_control,edds_7_lose_control,"During the times when you ate an unusually large amount of food, did you experience a loss of control (eg. felt you couldn't stop eating or control what or how much you were eating)?",rename,2,NA,NA,NA,NA,NA,NA
+edds_eat_much_frequency,edds_8_eat_much_frequency,How many times per month on average over the past 3 months have you eaten an unusually large amount of food and experienced a loss of control?,rename,2,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_more_rapid,edds_9_more_rapid,Eat much more rapidly than normal?,rename,2,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_too_full,edds_10_too_full,Eat until you felt uncomfortably full?,rename,2,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_not_hungry,edds_11_not_hungry,Eat large amounts of food when you didn't feel physically hungry?,rename,2,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_eat_alone,edds_12_eat_alone,Eat alone because you were embarrassed by how much you were eating?,rename,2,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_digusted,edds_13_digusted,"Feel disgusted with yourself, depressed, or very guilty after overeating?",rename,2,"Yes = 1, No = 0",NA,NA,NA,NA,NA
+edds_overeat_upset,edds_14_overeat_upset,"If you have episodes of uncontrollable overeating, does it make you very upset?",rename,2,NA,NA,NA,NA,NA,NA
+edds_vomit,edds_15_vomit,Made yourself vomit?,rename,2,NA,NA,NA,NA,NA,NA
+edds_laxatives,edds_16_laxatives,Used laxatives or diuretics?,rename,2,NA,NA,NA,NA,NA,NA
+edds_fast,edds_17_fast,Fasted (skipped at least 2 meals in a row)?,rename,2,NA,NA,NA,NA,NA,NA
+edds_intense_exercise,edds_18_intense_exercise,Engaged in more intense exercise specifically to counteract the effects of overeating?,rename,2,NA,NA,NA,NA,NA,NA
+edds_night_eat,edds_19_night_eat,How many times per month on average over the past 3 months have you eaten after awakening from sleep or eaten an unusually large amount of food after your evening meal and felt distressed by the night eating?,rename,2,NA,NA,NA,NA,NA,NA
+edds_relationship,edds_20_relationship,"How much does any eating or body image problem impact your relationships with friends and family, work performance, and school performance?",recode,2,"Male = 1, Female = 2","1 = 0, 2 = 1",NA,NA,NA,NA
+edds_sex,edds_21_sex,What is your sex?,rename,2,"incomplete = 0, complete = 2",NA,NA,NA,NA,NA
+edds_complete,edds_22_complete,Complete?,rename,2,NA,NA,NA,NA,NA,NA
+"edds_2_timestamp, edds_3_fat, edds_4_gain_weight, edds_5_self_judge, edds_6_eat_too_much, edds_7_lose_control, edds_8_eat_much_frequency, edds_9_more_rapid, edds_10_too_full, edds_11_not_hungry, edds_12_eat_alone, edds_13_digusted, edds_14_overeat_upset, edds_15_vomit, edds_16_laxatives, edds_17_fast, edds_18_intense_exercise, edds_19_night_eat, edds_20_relationship, edds_21_sex, edds_22_complete",edds_sum,SUM of edss,sum,3,NA,NA,NA,NA,NA,NA
+"redcap_1_event_name, edds_2_timestamp, edds_3_fat, edds_4_gain_weight, edds_5_self_judge, edds_6_eat_too_much, edds_7_lose_control, edds_8_eat_much_frequency, edds_9_more_rapid, edds_10_too_full, edds_11_not_hungry, edds_12_eat_alone, edds_13_digusted, edds_14_overeat_upset, edds_15_vomit, edds_16_laxatives, edds_17_fast, edds_18_intense_exercise, edds_19_night_eat, edds_20_relationship, edds_21_sex, edds_22_complete",NA,NA,select,4,NA,NA,NA,NA,NA,NA
