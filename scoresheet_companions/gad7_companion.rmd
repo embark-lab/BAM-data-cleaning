@@ -1,3 +1,4 @@
+
 ---
 title: "GAD"
 author: "Taiming Xue"
@@ -36,20 +37,19 @@ The variable below is sum of all variables
 
 ```{r, echo=FALSE}
 library(haven)
-library(cgwtools)
 library(readxl)
+library(dplyr)
 library(scorekeeper)
 
 
 
+load('BAM_RA_raw.Rdata')
 
-MAXED_raw <- read.csv('MAXED_RA_raw.csv')
+GAD7_scoresheet <- read_excel('GAD7_Clean.xlsx')
 
-GAD7_scoresheet <- read.csv('GAD7_Clean.csv')
+cleaned_data <- scorekeep(BAM_RA_raw, GAD7_scoresheet)
 
-cleaned_data <- scorekeep(MAXED_raw, EPSI_scoresheet)
+GAD7_Cleaned <- cleaned_data[[5]]
 
-GAD7_Cleaned <- cleaned_data[[4]]
-
-save(GAD7_Cleaned, file = 'gad7_cleaned.RData')
-```
+save(GAD7_Cleaned, file = 'gad7_cleaned.RData'
+=======

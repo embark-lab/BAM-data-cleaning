@@ -1,3 +1,4 @@
+
 ---
 title: "fsq companion"
 author: "Danielle Lennon"
@@ -10,9 +11,10 @@ output: html_document
 This companion file is for the Household Food Security Scale (FSQ) developed by the USDA Food and Nutrition Services (FNS) in 1995 for assessing food security within households, specifically for use in the Current Population Survey (CPS) which is run by the US Bureau of the Census (Carlson et al., 1999). One of the distinguishing factors of the FSQ is its categorical approach as it is a unidimensional scale intended to measure the severity of the food insecurity in question (Carlson et al., 1999). The FSQ demonstrates strong psychometric properties with high reliability and validity and this has been supported by historical evaluations (Engelhard Jr. et al., 2018). The FSQ uses 3 separate scales for the different types of questions: yes and no questions on a 2-point likert scale, questions with a 3 point likert scale, wherein, 2 equals never true and 0 equals often true, and questions with a 6-point likert scale where 1 equals no days and 7 equals everyday. 
 
 [Measuring Food Insecurity and Hunger in the United States: Development of a National Benchmark Measure and Prevalence Estimates](https://academic.oup.com/jn/article/129/2/510S/4731683)
+
 [Using Household Fit Indices to Examine the Psychometric Quality of Food Insecurity Measures](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6293410/)
 
-##
+
 ## 2. Scoresheet
 
 In order to clean the data:
@@ -31,21 +33,27 @@ In order to clean the data:
 
 - Average scores for questions 7, 9, 11, and 13 and rename `fsq_yes_no`
 
-##
+
 ## 3. Key Variables
 `fsq_sum_access` (sum of scores answering questions asking about access to food and whether there was a lack of food security and whether there was concern regarding food security)
 `fsq_average_duration` (average of scores measuring how many days were impacted by previous questions with yes no scores regarding previous 28 days of access and measures taken because of food insecurity)
 `fsq_yes_no` (average of scores answering questions focused on measures taken in previous 28 responding to food insecurity)
 
-##
+
 ```{r, echo=FALSE}
 library(readxl)
-fsq_clean <- read_excel("~/fsq_clean.xlsx")
 library (cgwtools)
+library(dplyr)
 library(scorekeeper)
+
+load('BAM_RA_raw.Rdata')
+
+fsq_clean <- read_excel("fsq_clean.xlsx")
 
 cleaned_data <- scorekeep(BAM_RA_raw, fsq_clean)
 
-cleaned_fsq_data <- cleaned_data[[4]]
+cleaned_fsq_data <- cleaned_data[[5]]
+
+save(cleaned_fsq_data, file = 'cleaned_fsq.RData')
 
 ```

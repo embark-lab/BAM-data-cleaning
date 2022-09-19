@@ -1,0 +1,43 @@
+---
+title: "Childhood Trauma Questionnaire"
+output: html_document
+date: '2022-05-15'
+---
+## Background
+Scoring of the Childhood Trauma Questionnaire
+This scale was developed by David Bernstein and colleagues and includes a 28-item self-report measure (Berstein, et al., 1998). The CTQ is designed to examine traumatic childhood experiences in adults and adolescents. Questions focus on traumatic experiences and examples of abuse and neglect (ie. ctq_not_enough_to_eat, ctq_parents_drunk_high, etc.). Items are scored on a Likert scale from 1 (never true) to 5 (very often true). High scores indicate more trauma (Wright et al., 2001). 
+
+Bernstein, D., Stein, J., Newcomb, M, Walker, E., Pogge, D., Ahluvalia, T., Stokes, J., Handelsman, L., Medrano, M., Desmond, D., & Zule, W. (1998). Development and validation of a brief screening version of the Childhood Trauma Questionnaire. Child Abuse & Neglect. https://www.sciencedirect.com/science/article/pii/S0145213402005410#:~:text=To%20address%20the%20need%20for,et%20al.%2C%201994)
+
+Wright, K., Asmundson, G., McCreary, D., Scher, C., Hami, S., Stein, M. (2001). Factorial validity of the Childhood Trauma Questionnaire in men and women. Depression and anxiety. https://pubmed.ncbi.nlm.nih.gov/11413564/ 
+
+## Scoresheet
+To clean the data, the scoresheet:
+
+(1) selects only variables that are relevant for the current measure
+
+(2) recoded all necessary variables (e.g. 'Never true =1' to 'never true = 0')
+
+(3) Creates a symptom sum score, which gives a sum count of the number of symptoms (0-5) that are present for each individual
+
+## Key Variables
+'ctq_sum' (defines sum score of symptoms)
+
+```{r}
+library(haven)
+library(cgwtools)
+library(scorekeeper)
+library(readxl)
+```
+
+#The code below loads the raw data and the score sheet and cleans the data
+
+```{r}
+
+load('BAM_RA_raw.Rdata')
+CTQ_scoresheet <- read.csv("CTQ_scoresheet.csv")
+cleaned_data <- scorekeep(BAM_RA_raw, CTQ_scoresheet)
+cleaned_ctq_data <- cleaned_data[[4]]
+save(cleaned_ctq_data, file = 'cleaned_ctq.RData')
+```
+

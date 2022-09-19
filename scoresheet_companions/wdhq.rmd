@@ -1,0 +1,57 @@
+---
+title: "WDHQ"
+author: "Taiming Xue"
+date: '2022-07-14'
+output: html_document
+---
+
+## Background
+
+The Dieting and Weight History Questionnaire (WDHQ) attempts to capture current weight-loss dieting, history of dieting, and weight suppression.
+
+The Dieting and Weight History Questionnaire (WDHQ) has previously been examined and used in the literature. Some examples are listed below:
+
+[Assessing the three types of dieting in the Three-Factor Model of dieting. The Dieting and Weight History Questionnaire](https://pubmed.ncbi.nlm.nih.gov/23220357/)
+
+
+## Scoresheet
+
+To clean the data, the scoresheet:
+
+1) selects only the variables that are relevant for the current measure
+
+2) appropriately accounts for the skip patterns in the data (recoding to "no" follow-up questions for individuals who reported no dieting history, etc.)
+
+3) renames raw variables to appropraite names that are easy to understand
+
+4) selects only a few columns that will go into the final dataset
+
+
+## Key Variables
+
+`wdqhq_diet` (assess whether participants are on dieting)
+
+`wdqhq_nodiet`(assess particiapnts' dieting history)
+
+`wdqhq_dietwhy` (represent reasons for dieting: weight suppression or weight loss)
+
+
+```{r, echo=FALSE}
+library(haven)
+library(cgwtools)
+library(readxl)
+library(scorekeeper)
+
+
+
+
+load('BAM_RA_raw.Rdata')
+
+wdhq_scoresheet <- read_excel('WDQHQ.xlsx')
+
+cleaned_data <- scorekeep(BAM_RA_raw, wdhq_scoresheet)
+
+wdhq_Cleaned <- cleaned_data[[4]]
+
+save(wdhq_Cleaned, file = 'wdhq_cleaned.RData')
+```
