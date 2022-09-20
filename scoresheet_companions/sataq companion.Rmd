@@ -1,0 +1,48 @@
+---
+title: "sataq"
+output: html_document
+---
+## 1. Background
+
+This companion file is for the Sociocultural Attitudes Towards Appearance Questionnaire-4 (SATAQ) which measures designed to assess societal and interpersonal aspects of appearance ideals.(Schaefer, Lauren M et al., 2015) This experiment design has assess to an extensive evaluation among samples, which works very well. 
+
+
+Schaefer, Lauren M et al. “Development and validation of the Sociocultural Attitudes Towards Appearance Questionnaire-4 (SATAQ-4).” Psychological assessment vol. 27,1 (2015): 54-67. doi:10.1037/a0037917
+
+##
+
+## 2. Scoresheet
+
+In order to clean the data:
+
+- Select raw variables being used
+
+- Rename variables to include numbering for order of questions in the scale
+
+- Recode labels scale to begin at 0
+
+- Generate the average score of internalization of thin/low Body Fat, internalization of muscular/athletic, pressures - family, pressures - peers, and pressures - media. 
+
+
+##
+
+## 3. Key Variables
+ 
+"sataq_average"	(average of SATAQ)
+"sataq_thin_ideal"	(average of internalization of the thin ideal)
+"sataq_athletic_idea"	(average of internalization of athletic ideal)
+"sataq_parental_pressure"	(average of parental pressure)
+"sataq_peer_pressure"	(average of peer pressure)
+"sataq_media_pressure"	(average of media pressure)
+
+##
+```{r, echo=FALSE}
+library(readxl)
+sataq_clean <- read.csv("sataq_excel.csv")
+BAM_RA_raw <- read.csv("BAM_RA_raw.csv")
+library(cgwtools)
+library(scorekeeper)
+cleaned_data <- scorekeep(BAM_RA_raw, sataq_clean)
+cleaned_ataq_data <- cleaned_data[[4]]
+```
+
