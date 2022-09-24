@@ -1,7 +1,7 @@
 ---
 title: "umb-fat companion"
-author: "Danielle Lennon"
-date: '2022-05-12'
+author: "Danielle Lennon-TX checked"
+date: '2022-05-12/9/21'
 output: html_document
 ---
 ## 1. Background
@@ -12,7 +12,7 @@ This companion file is for the Universal Measure of Bias - Fat (UMB-Fat) which w
 [Understanding self-directed stigma: development of the weight bias internalization scale ](https://pubmed.ncbi.nlm.nih.gov/18978768/)
 [Weighing obesity stigma: the relative strength of different forms of bias ](https://pubmed.ncbi.nlm.nih.gov/18414421/)
 [UMB-FAT](https://www.researchgate.net/publication/262414384_UMB-FAT)
-##
+
 ## 2. Scoresheet
 
 In order to clean the data:
@@ -31,7 +31,7 @@ In order to clean the data:
 
 - Sum the total scores of questions 1, 11, 13, 14, 18 and rename as `umb_equal_rights_sum`
 
-##
+
 ## 3. Key Variables
  
 `umb_adverse_judgement_sum` (sum of scores for questions identifying bias in the form of adverse judgement against fat people)
@@ -39,13 +39,13 @@ In order to clean the data:
 `umb_attraction_sum` (sum of scores for questions identifying bias in the form of attraction towards fat people)
 `umb_equal_rights_sum` (sum of scores for questions identifying bias in the form of opions of equal rights for fat people)
 
-##
+
 ```{r, echo=FALSE}
 library(readxl)
-umb_fat_clean <- read_excel("~/umb_fat_clean.xlsx")
+umb_fat_clean <- read.csv("umb-fat clean.csv")
 library (cgwtools)
 library(scorekeeper)
-
+load('BAM_RA_raw.Rdata')
 cleaned_data <- scorekeep(BAM_RA_raw, umb_fat_clean)
 
 cleaned_umb_fat_data <- cleaned_data[[4]]

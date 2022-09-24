@@ -1,0 +1,49 @@
+---
+title: "9-question Patient Health Questionnaire Companion File"
+output: html_document
+Author: "TX-Checked"
+Date: "9/21/2022"
+---
+
+
+## 1. Background
+
+The 9-question Patient Health Questionnaire is a diagnostic tool introduced in 2001 to screen adult patients in a primary care setting for the presence and severity of depression. It rates depression based on the self-administered Patient Health Questionnaire.
+
+
+Reference 1: [Anxiety Sensitivity, Anxiety Frequency, and the Prediction of Fearfulness](https://github.com/jjcurtin/arc_measures/raw/main/ASI/ReissS1986a.pdf)
+Reference 2: [Robust Dimensions of Anxiety Sensitivty: Development and Initial Validation of the Anxiety Sensitivity Index-3](https://github.com/jjcurtin/arc_measures/raw/main/ASI3/TaylorS2007b.pdf)
+
+## 2. Scoresheet
+
+In order to clean the data:
+
+(1) Selects raw variables being used for the current measure
+
+(2) Recode labels scale to begin at 0 instead of 1 with "not at all" = 0, and "nearly every day" = 4
+
+(3) Sum the total scores and rename this summary as phq_sum
+
+
+## 3. Key Variables
+
+`phq_sum` (represents total score of the PHQ-9)
+
+
+```{r}
+library(readxl)
+library(haven)
+library(cgwtools)
+library(scorekeeper)
+
+phq9_clean <- read.csv("phq_scoresheet.csv")
+
+load('BAM_RA_raw.Rdata')
+
+cleaned_data <- scorekeep(BAM_RA_raw, phq9_clean)
+
+cleaned_phq9_data <- cleaned_data[[4]]
+
+save(cleaned_phq9_data, file = 'cleaned_phq9.RData')
+```
+
