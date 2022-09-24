@@ -1,3 +1,3 @@
-# bam-scorekeep
+# bam-data-cleaning
 
-Fork or branch this repository, upload your scoresheets and companion files, and merge back here
+This repository houses all code and scoresheets for cleaning dat in the BAM project
