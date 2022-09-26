@@ -31,14 +31,16 @@ In order to clean the data:
 
 - Sum the total scores of questions 1, 11, 13, 14, 18 and rename as `umb_equal_rights_sum`
 
+-Total score with sum of all items as `umb_sum_total`
+
 
 ## 3. Key Variables
  
-`umb_adverse_judgement_sum` (sum of scores for questions identifying bias in the form of adverse judgement against fat people)
-`umb_social_distance_sum` (sum of scores for questions identifying bias in the form of social distance from fat people)
-`umb_attraction_sum` (sum of scores for questions identifying bias in the form of attraction towards fat people)
-`umb_equal_rights_sum` (sum of scores for questions identifying bias in the form of opions of equal rights for fat people)
-
+`umb_adverse_judgement_sum_25` (sum of scores for questions identifying bias in the form of adverse judgement against fat people - 25% or less missing)
+`umb_social_distance_sum_25` (sum of scores for questions identifying bias in the form of social distance from fat people - 25% or less missing)
+`umb_attraction_sum_25` (sum of scores for questions identifying bias in the form of attraction towards fat people - 25% or less missing)
+`umb_equal_rights_sum_25` (sum of scores for questions identifying bias in the form of opinons of equal rights for fat people - 25% or less missing)
+`umb_sum_total_25` (sum of total umb-FAT scores - 25% or less missing)
 
 ```{r, echo=FALSE}
 library(readxl)

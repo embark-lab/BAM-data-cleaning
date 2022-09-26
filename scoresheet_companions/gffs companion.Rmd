@@ -7,7 +7,7 @@ output: html_document
 
 ## 1. Background
 
-This companion file is for the Goldfarb Fear of Fat Scale (GFFS) which was introduced in 1985 as a diagnostic tool to measure one's fear of fat as it can be an indicator for the development of an eating disorder (Goldfarb et al., 1985). When used as a screening tool for both clinical and non-clinical groups, GFFS has strong test-retest reliability and psychometric properties (Pryzbyla-Basista et al., 2022). In addition, the test also has shown high validity for both populations with and without eating disorders (Goldfarb, 2010). GFFS uses a 4-point scale with 1 being equal to very untrue and 4 being equal to very true. 
+This companion file is for the Goldfarb Fear of Fat Scale (GFFS) which was introduced in 1985 as a diagnostic tool to measure one's fear of fat as it can be an indicator for the development of an eating disorder (Goldfarb et al., 1985). When used as a screening tool for both clinical and non-clinical groups, GFFS has strong test-retest reliability and psychometric properties (Pryzbyla-Basista et al., 2022). In addition, the test also has shown high validity for both populations with and without eating disorders (Goldfarb, 2010). GFFS uses a 4-point scale with 1 being equal to very untrue and 4 being equal to very true, and a 1-factor solution has been supported for scoring. 
 
 
 [The Goldfarb Fear of Fat Scale](https://pubmed.ncbi.nlm.nih.gov/3861845/)
@@ -39,7 +39,9 @@ In order to clean the data:
 `gffs_8_energy_control_weight` (assesses energy that goes towards weight control)
 `gffs_9_eat_lose_control` (assesses fear of losing control when eating)
 `gffs_10_stay_hungry` (assesses if staying hungry is meant to prevent becoming fat)
-`gffs_sum` (sum of answers for the previous 10 variables)
+`gffs_sum_complete` (sum of answers for the previous 10 variables)
+`gffs_sum_25` (weighted sum of gffs for all individuals with < 25% missing items)
+
 ##
 ```{r, echo=FALSE}
 library(readxl)
