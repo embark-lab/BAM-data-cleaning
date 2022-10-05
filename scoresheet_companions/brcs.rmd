@@ -1,0 +1,60 @@
+---
+title: "Brief Resilience Coping Scale"
+author: "Taiming Xue"
+date: '2022-07-08'
+output: html_document
+---
+
+## Background
+
+The Brief Resilient Coping Scale focuses on the tendency to effectively use coping strategies in flexible, committed ways to actively solve problems despite stressful circumstances. Responses are rated based on a 5-point scale, ranging from 1=does not describe me at all to 5=describes me very well. Total sum scores range from 4 to 20. Scores of 4-13 indicate low resilient coping, 14-16 indicate medium resilient coping and 17-20 indicate high resilient coping.
+
+The Brief Resilient Coping Scale has previously been examined and used in the literature. Some examples are listed below:
+
+[The development and psychometric evaluation of the Brief Resilient Coping Scale](https://pubmed.ncbi.nlm.nih.gov/14994958/)
+
+[Resilient coping in the general population: standardization of the brief resilient coping scale (BRCS)](https://hqlo.biomedcentral.com/articles/10.1186/s12955-017-0822-6)
+
+
+## Scoresheet
+
+To clean the data, the scoresheet:
+
+1) selects only the variables that are relevant for the current measure
+
+2) renames raw variables to appropraite names that are easy to understand
+
+3) creates a total sum score of brief resilience coping scale
+
+4) creates an additional variable based on sum score. The new variable splits cases into low, medium, and high resilience coping
+
+5) select only a few columns that will go into the final dataset
+
+
+## Key Variables
+
+`brcs_sum` (represents total sum score of brief resilience coping scale)
+
+`brcs_level` (represents levels of resilient coping split into low, medium, high)
+
+
+
+```{r, echo=FALSE}
+library(haven)
+library(cgwtools)
+library(readxl)
+library(scorekeeper)
+
+
+
+
+load('BAM_RA_raw.Rdata')
+
+BRCS_scoresheet <- read_excel('BRCS.xlsx')
+
+cleaned_data <- scorekeep(BAM_raw, BRCS_scoresheet)
+
+BRCS_Cleaned <- cleaned_data[[5]]
+
+save(BRCS_Cleaned, file = 'brcs_cleaned.RData')
+```
