@@ -1,0 +1,34 @@
+---
+title: "efq_companion"
+author: "Lauren Pictor"
+date: "2022-10-03"
+output: html_document
+---
+
+\#**Eating Disorder Questionnaire**
+
+The Eating Disorder Fear Questionnaire (EFQ) is a 20-item scale created in 2019 as a self-report measure that assesses the core fears of eating disorders (ED) [@levinsonDevelopmentValidationEating2019]. Preliminary analysis found the EFQ to have strong internal consistency and moderate convergent, divergent, and incremental validity [@levinsonDevelopmentValidationEating2019]. While the EFQ was meant to be a 4-factor structure, a 5-factor structure was found to be a better model for both undergraduate and clinical participants: fear of weight gain, feared consequences (social and personal), a fear of physical sensations, and social eating [@levinsonDevelopmentValidationEating2019].
+
+\#**Scoring**
+
+Scoring for the EFQ includes:
+
+**1-2.** Selecting and renaming variables
+
+**3-5.** Sum the total scores and create a variable to reflect only those completing \> 75% of items.
+
+**6-10** Create five sub-scales (FOWG, FOSC, FOPC, FOPS, and FOSE) for alternative scoring.
+
+**Key Variables**
+
+`EFQ_sum_25` (Sum of EFQ, 25% or less items missing and weighted by N items completed)
+
+`efq_fowg` (sum of fear of weight gain sub-scale)
+
+`efq_fosc`(sum of fear of social consequences sub-scale)
+
+`efq_fopc` (sum of fear of personal consequences sub-scale)
+
+`efq_fops` (sum of fear of physical sensations sub-scale)
+
+`efq_fose` (sum of fear of social eating sub-scale)
