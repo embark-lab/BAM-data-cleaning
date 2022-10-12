@@ -1,0 +1,42 @@
+---
+title: "Intolerance of Uncertainty"
+output: html_document
+date: '2022-05-15'
+---
+## Background
+Scoring of the Intolerance of Uncertainty Scale
+This scale, developed by Freeston, Rhéaume, Letarte, Dugas, and Ladouceur (1994) is a 12 item survey to assess Intolerance of Uncertainty (IU). The Intolerance of Uncertainty Scale (IUS) assesses reaction to four main ideas: uncertainty is stressful and upsetting, uncertainty leads to the inability to act, uncertain events are negative and should be avoided, and being uncertain is unfair (Buhr, K, et al., 2001). It consists of two factors: prospective anxiety (i.e. “I can’t stand being taken by surprise”) and inhibitory anxiety (i.e. “I must get away from all uncertain situations”). Items are rated on a 5-point Likert type scale from 1 ("Not at all characteristic of me") to 5 ("Entirely characteristic of me"). Degree of intolerance was determined by finding the sum or total of all answers. High scores indicate greater IU. 
+
+The Intolerance of Uncertainty has previously been scored and examined in several papers:
+
+[Buhr, K, and M.J Dugas (2001). “The Intolerance of Uncertainty Scale: Psychometric Properties of the English Version.” Behavior Research and Therapy, Pergamon.]  
+
+[Hale, W., Richmond, M., Bennett, J., Berzins, T., Fields, A., Weber, D., Beck, M., & Osman, A. (2016). Resolving Uncertainty About the Intolerance of Uncertainty Scale-12: Application 
+of Modern Psychometric Strategies. Journal of personality assessment, 98(2), 200–208.] https://doi.org/10.1080/00223891.2015.1070355
+
+## Scoresheet
+To clean the data, the scoresheet:
+
+(1) selects only variables that are relevant for the current measure
+
+(2) recoded all necessary variables (e.g. changing "not at all charachteristic of me = 1" to "not charachteristic of me = 0")
+
+(3) Creates a symptom aaverage score, which gives an average count of the number of symptoms (0-5) that are present for each individual
+
+## Key Variables
+'iuss_sum' (defines sum score of symptoms)
+
+```{r}
+library(haven)
+library(cgwtools)
+library(scorekeeper)
+library(readxl)
+```
+
+```{r}
+#The code below loads the raw data and the score sheet and cleans the data
+MAXED_RA_raw <- read.csv("MAXED_RA_raw.csv")
+IUS_scoresheet <- read_excel("IUS_scoresheet.xlsx")
+cleaned_data <- scorekeep(MAXED_RA_raw, IUS_scoresheet)
+```
+
