@@ -48,13 +48,9 @@ library(scorekeeper)
 
 
 
-load('BAM_RA_raw.Rdata')
-
+BAM_RA_raw <- read.csv("BAM_RA_raw.csv")
 BRCS_scoresheet <- read_excel('BRCS.xlsx')
 
-cleaned_data <- scorekeep(BAM_raw, BRCS_scoresheet)
+cleaned_data <- scorekeep(BAM_RA_raw, BRCS_scoresheet)
 
-BRCS_Cleaned <- cleaned_data[[5]]
-
-save(BRCS_Cleaned, file = 'brcs_cleaned.RData')
 ```
