@@ -1,3 +1,6 @@
+
+This file goes through the scoring for the BAM project -- PRIOR to switching over to the 'scheduled' redcap in Fall 2022. There is a separate scoring file for that project (Fall 2022 and later) which tweaks some changes related to the scheduled version of the project and then combines the new incoming data from that Redcap project with this data. 
+
 # 0. Load packages
 ```{r, message=FALSE}
 library(readxl)
@@ -14,7 +17,7 @@ library(Hmisc)
 library(stringr)
 ```
 
-# 1. Download Data from API
+The current scoring completes redcap scoring for the BAM project on data from 2020-Spring 2022; prior to switching over to the 'scheduled' BAM module
 
 ## Load Data
 ```{r}
@@ -30,12 +33,12 @@ data <- read.csv('data/BAMBodyAdvocacyMovem_DATA_2022-10-22_1637.csv')  %>%
 ```{r, warning=FALSE}
 
 # Load Individual Scoresheets
-filenames <- list.files('scoresheets_clean/') # MAKE SURE THIS IS THE CORRECT DIRECTORY NAME
-filenames <- paste('scoresheets_clean', filenames, sep = '/' )
+filenames <- list.files('scoresheets1_clean/') # MAKE SURE THIS IS THE CORRECT DIRECTORY NAME
+filenames <- paste('scoresheets1_clean', filenames, sep = '/' )
 ldf <- lapply(filenames, read_xlsx)
 
 # List of Measure Names from the Scoresheets
-measures <- list.files('scoresheets_clean/') 
+measures <- list.files('scoresheets1_clean/') 
 measures <- gsub('.xlsx*', '', measures)
 
 # Names the scoresheets
@@ -117,7 +120,7 @@ weight_vars <- data %>%
           wdwq_complete == 2)
 
 #Current Weight
-DWHQ <- weight_vars %>% 
+WT_VARS <- weight_vars %>% 
   mutate (wdhq_current_wt = as.numeric(wdqhq_pounds)) %>% 
   select (record_id, wdhq_current_wt, wdqhq_pounds, wdqhq_weight_lbs_kg, wdqhq_q, wdqhq_leastpounds) %>% 
   mutate (dwhq_wt_kg_current = case_when(wdqhq_weight_lbs_kg == 2 ~ as.numeric(wdhq_current_wt),
@@ -147,7 +150,7 @@ height <- height %>%
 height <- height %>% 
   select(record_id, dwhq_height_cm)
 
-DWHQ <- left_join(DWHQ, height) %>% 
+WT_VARS <- left_join(WT_VARS, height) %>% 
   rename(id = 'record_id') %>% 
   mutate(dwhq_bmi_current = dwhq_wt_kg_current/(dwhq_height_cm^2)*10000) %>% 
   mutate(dwhq_bmi_low = dwhq_wt_kg_low/(dwhq_height_cm^2)*10000) %>% 
@@ -170,11 +173,11 @@ Group <- read_xlsx('data/BAM_Randomization.2020-2022.xlsx')
 cleaned_data <- cleaned_data %>% 
   append(list(Group)) %>% 
   append(list(DCF)) %>% 
-  append(list(DWHQ)) 
+  append(list(WT_VARS)) 
 
 names(cleaned_data)[[length(cleaned_data)-2]] <- 'Group'
 names(cleaned_data)[[length(cleaned_data)-1]] <- 'DCF'
-names(cleaned_data)[[length(cleaned_data)]] <- 'DWHQ'
+names(cleaned_data)[[length(cleaned_data)]] <- 'WT_VARS'
 
 long_data <- cleaned_data[[1]]
 
@@ -206,25 +209,25 @@ wide_data <- long_data %>%
 # 6. Save cleaned data 
 ```{r}
 # Dataset with dataframes separated by measure
-BAM_redcap <- cleaned_data 
-save(BAM_redcap, file = 'data/BAM_redcap.RData') 
+BAM1_redcap <- cleaned_data 
+save(BAM1_redcap, file = 'data/BAM1_redcap.RData') 
 
 
 # Long Dataframe
-BAM_redcap_long <- long_data
-save(BAM_redcap_long, file = 'data/BAM_redcap_long.RData') 
+BAM1_redcap_long <- long_data
+save(BAM1_redcap_long, file = 'data/BAM1_redcap_long.RData') 
 
 # Wide Dataframe
-BAM_redcap_wide <- wide_data
-save(BAM_redcap_wide, file = 'data/BAM_redcap_wide.RData') 
+BAM1_redcap_wide <- wide_data
+save(BAM1_redcap_wide, file = 'data/BAM1_redcap_wide.RData') 
 ```
 
 # 7. Clear environment and load data for checking
 ```{r}
 rm(list = ls())
-load('data/BAM_redcap.RData')
-load('data/BAM_redcap_long.RData')
-load('data/BAM_redcap_wide.RData')
+load('data/BAM1_redcap.RData')
+load('data/BAM1_redcap_long.RData')
+load('data/BAM1_redcap_wide.RData')
 
 ```
 
