@@ -22,7 +22,7 @@ The current scoring completes redcap scoring for the BAM project on data from 20
 ## Load Data
 ```{r}
 # Load Raw data; name cleaned data file for output
-data <- read.csv('data/BAMBodyAdvocacyMovem_DATA_2022-10-22_1637.csv')  %>% 
+data <- read.csv('data/pre_scheduling/BAMBodyAdvocacyMovem_DATA_2022-10-22_1637.csv')  %>% 
   filter(redcap_event_name != 'consent_form_arm_1')
 ```
 
